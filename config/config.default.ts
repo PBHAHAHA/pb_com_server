@@ -29,8 +29,15 @@ export default (appInfo: EggAppInfo) => {
 
   config.security = {
     csrf: {
-      headerName: 'csrf_token',// 自定义请求头
-    }
+      enable: false,
+      ignoreJSON: true,
+      headerName: 'token',// 自定义请求头
+    },
+    domainWhiteList: ['*']
+  }
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,POST,PUT,DELETE,PATCH'
   }
 
   // the return config will combines to EggAppConfig
