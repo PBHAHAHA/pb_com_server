@@ -39,6 +39,9 @@ export default (appInfo: EggAppInfo) => {
     origin: '*',
     allowMethods: 'GET,HEAD,POST,PUT,DELETE,PATCH'
   }
+  config.jwt = {
+    secret: 'Pub'
+  }
 
   // the return config will combines to EggAppConfig
   return {
