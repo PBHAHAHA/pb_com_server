@@ -34,4 +34,26 @@ export default class ArticleController extends Controller {
       }
     }
   }
+
+  public async getArticleById() {
+    const { ctx } = this
+    const { id } = ctx.request.body
+    const art = await ctx.service.article.getArticleById(id)
+    if(art) {
+      console.log("请求成~",art)
+      ctx.body = {
+        code: 200,
+        msg: '请求成功',
+        data: art
+      }
+      return
+    }else{
+      ctx.body = {
+        code: 400,
+        msg: '无数据',
+        data: art
+      }
+      return
+    }
+  }
 }

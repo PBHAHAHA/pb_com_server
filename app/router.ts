@@ -8,6 +8,7 @@ export default (app: Application) => {
   router.post('/api/user/login', controller.user.login);
   router.post('/api/user/test',_jwt, controller.user.test);//测试接口
   router.post('/api/article/add',_jwt,controller.article.add)//添加文章
+  router.post('/api/article/detail',_jwt,controller.article.getArticleById)
 
   // web展示路由
   router.get('/web/home/info', controller.home.index);

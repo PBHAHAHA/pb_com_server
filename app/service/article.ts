@@ -20,4 +20,17 @@ export default class ArticleService extends Service {
     const res = app.mysql.insert('article',params)
     return res
   }
+
+  public async getArticleById(id) {
+    // console.log('------id--------',id)
+    const {app} = this
+    try {
+      const article = await app.mysql.get('article',{id: Number(id)})
+      // console.log("------------------------------",article)
+      return article
+    } catch (error) {
+      console.log(error)
+      return null
+    }
+  }
 }
